@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="GrokGoblin turns the xAI Grok CLI into an autonomous themed engineering crew. Orchestrate 10 specialist agents (sniffer, schemer, basher) with durable workflows, persistent remote memory, isolated worktrees, and lifecycle hooks."
+    />
+    <meta
+      name="keywords"
+      content="GrokGoblin, grok CLI, xAI, AI coding agents, multi-agent orchestration, CLI workflows, autonomous coding, grok-build, grok-composer-2.5-fast, xAI Grok, AI developer tools"
+    />
+    <meta name="author" content="akhilkinnera01" />
+    
+    <!-- Open Graph (Facebook/LinkedIn) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://akhilkinnera01.github.io/GrokGoblin/" />
+    <meta property="og:title" content="GrokGoblin — Autonomous Crew for xAI Grok CLI" />
+    <meta
+      property="og:description"
+      content="Orchestrate the xAI Grok CLI into an autonomous themed developer crew: 10 specialist subagents, isolated worktrees, persistent memory, and TDD lifecycle loops."
+    />
+    <meta property="og:image" content="https://akhilkinnera01.github.io/GrokGoblin/assets/banner-orchestrator.jpg" />
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://akhilkinnera01.github.io/GrokGoblin/" />
+    <meta name="twitter:title" content="GrokGoblin — Autonomous Crew for xAI Grok CLI" />
+    <meta name="twitter:description" content="Orchestrate the xAI Grok CLI into an autonomous themed developer crew: 10 specialist subagents, isolated worktrees, persistent memory, and TDD lifecycle loops." />
+    <meta name="twitter:image" content="https://akhilkinnera01.github.io/GrokGoblin/assets/banner-orchestrator.jpg" />
+    
+    <!-- Canonical link -->
+    <link rel="canonical" href="https://akhilkinnera01.github.io/GrokGoblin/" />
+    
+    <meta name="theme-color" content="#70f255" />
+    <title>GrokGoblin — Autonomous Crew for xAI Grok CLI</title>
+
+    <!-- Structured Data (JSON-LD) for SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "GrokGoblin",
+      "operatingSystem": "macOS, Linux",
+      "applicationCategory": "DeveloperApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "USD"
+      },
+      "description": "Multi-agent orchestration layer for the xAI Grok CLI. Turns Grok CLI into an autonomous engineering crew with 10 specialist subagents, memory, hooks, and isolated worktrees.",
+      "developer": {
+        "@type": "Person",
+        "name": "akhilkinnera01",
+        "url": "https://github.com/akhilkinnera01"
+      },
+      "downloadUrl": "https://github.com/akhilkinnera01/GrokGoblin",
+      "softwareVersion": "0.1.0"
+    }
+    </script>
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Ambient background layers -->
+    <div class="bg-grain" aria-hidden="true"></div>
+    <div class="bg-glow" aria-hidden="true"></div>
+
+    <!-- Background Scroll Frame Container -->
+    <div class="video-bg-container" aria-hidden="true">
+      <img id="scroll-bg-frame" src="assets/frames/frame_0001.jpg" class="video-bg" />
+      <div class="video-bg-overlay"></div>
+    </div>
+
+    <!-- Top announcement / GitHub banner -->
+    <div class="top-bar">
+      <a href="https://github.com/akhilkinnera01/GrokGoblin" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+          <path d="M8 .2a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38l-.01-1.49c-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.42 7.42 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48l-.01 2.2c0 .21.15.46.55.38A8.01 8.01 0 0 0 8 .2Z"/>
+        </svg>
+        Star on GitHub
+        <span class="top-bar-arrow">→</span>
+      </a>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header" id="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#top" aria-label="GrokGoblin home">
+          <img src="assets/logo-transparent.png" alt="" class="brand-logo" />
+          <span class="brand-text">
+            <strong>GrokGoblin</strong>
+            <small>for Grok CLI</small>
+          </span>
+        </a>
+
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="#overview">Overview</a>
+          <a href="#crew">Crew</a>
+          <a href="#workflows">Workflows</a>
+          <a href="#commands">Commands</a>
+          <a href="#compare">Compare</a>
+          <a href="#faq">FAQ</a>
+          <a href="#install">Install</a>
+        </nav>
+
+        <div class="header-actions">
+          <a
+            class="github-link"
+            href="https://github.com/akhilkinnera01/GrokGoblin"
+            target="_blank"
+            rel="noopener"
+            aria-label="View akhilkinnera01/GrokGoblin on GitHub"
+          >
+            <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M8 .2a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38l-.01-1.49c-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.42 7.42 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48l-.01 2.2c0 .21.15.46.55.38A8.01 8.01 0 0 0 8 .2Z"/>
+            </svg>
+            <span class="github-handle">akhilkinnera01</span>
+          </a>
+        </div>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile nav -->
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+      <a href="#overview">Overview</a>
+      <a href="#crew">Crew</a>
+      <a href="#workflows">Workflows</a>
+      <a href="#commands">Commands</a>
+      <a href="#compare">Compare</a>
+      <a href="#faq">FAQ</a>
+      <a href="#install">Install</a>
+      <a href="https://github.com/akhilkinnera01/GrokGoblin" target="_blank" rel="noopener">akhilkinnera01/GrokGoblin</a>
+    </nav>
+
+    <main id="top">
+      <!-- ═══════════════ HERO ═══════════════ -->
+      <section class="hero" id="overview">
+        <div class="hero-badge">
+          Open source CLI orchestrator
+        </div>
+        <h1>
+          Turn <span class="text-gradient">Grok CLI</span> into an
+          <span class="text-gradient">autonomous</span> engineering crew
+        </h1>
+        <p class="hero-subtitle">
+          Multi-agent orchestration for the xAI Grok CLI — real subagents,
+          durable workflows, lifecycle hooks, memory, and worktrees that keep
+          messy work isolated until it is verified.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#install">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+            Install with npx
+          </a>
+          <a class="btn btn-ghost" href="https://github.com/akhilkinnera01/GrokGoblin" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M8 .2a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38l-.01-1.49c-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.42 7.42 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48l-.01 2.2c0 .21.15.46.55.38A8.01 8.01 0 0 0 8 .2Z"/>
+            </svg>
+            akhilkinnera01
+          </a>
+        </div>
+        
+        <!-- Interactive Terminal Simulator -->
+        <div class="hero-terminal">
+          <div class="terminal-chrome">
+            <div class="terminal-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <span class="terminal-title">agent-sandbox</span>
+            <button class="copy-btn" id="terminal-copy-btn" type="button" data-copy="npx grokgoblin@latest setup" aria-label="Copy command">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            </button>
+          </div>
+          
+          <div class="terminal-controls">
+            <button class="term-tab active" data-cmd="setup">setup</button>
+            <button class="term-tab" data-cmd="sniffer">sniffer</button>
+            <button class="term-tab" data-cmd="schemer">schemer</button>
+            <button class="term-tab" data-cmd="basher">basher</button>
+            <button class="term-tab" data-cmd="squasher">squasher</button>
+            <button class="term-tab" data-cmd="warden">warden</button>
+            <button class="term-tab" data-cmd="prover">prover</button>
+          </div>
+          
+          <div class="terminal-body" id="sandbox-terminal-body">
+            <code><span class="t-prompt">$</span> npx grokgoblin@latest setup</code>
+            <code><span class="t-prompt">$</span> gg cruise <span class="t-string">"add a /health endpoint with tests"</span></code>
+            <code class="t-output"><span class="t-label">[RALPH]</span> iteration 07/50</code>
+            <code class="t-output">&gt; reflect → tests failing; endpoint not wired</code>
+            <code class="t-output">&gt; act → add route, handler, and test</code>
+            <code class="t-output">&gt; verify → npm test</code>
+            <code class="t-success">✓ 24 passed, 0 failed</code>
+            <code class="t-output"><span class="t-label">[COMPLETE]</span> evidence captured → PR ready</code>
+          </div>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <strong>512K</strong>
+            <span>context window</span>
+          </div>
+          <div class="stat">
+            <strong>10</strong>
+            <span>specialist agents</span>
+          </div>
+          <div class="stat">
+            <strong>5</strong>
+            <span>workflow stages</span>
+          </div>
+          <div class="stat">
+            <strong>∞</strong>
+            <span>autonomous loops</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════ CREW ═══════════════ -->
+      <section class="section" id="crew">
+        <div class="section-header">
+          <span class="section-tag">The squad</span>
+          <h2>Meet the crew</h2>
+          <p>Specialist goblins with defined roles, tool boundaries, and routing discipline. Click any card to launch their sandbox output.</p>
+        </div>
+        <div class="crew-grid">
+          <article class="crew-card interactive-card" data-agent="sniffer" style="cursor: pointer;">
+            <div class="card-icon img-icon">
+              <img src="assets/crew-sniffer.png" alt="Sniffer" class="crew-avatar-img" />
+            </div>
+            <h3>Sniffer</h3>
+            <p>Investigation and requirements analysis. Finds facts, traces issues, gathers evidence.</p>
+            <div class="card-footer-info">
+              <span class="card-badge">read-only</span>
+              <span class="run-tag">Run →</span>
+            </div>
+          </article>
+
+          <article class="crew-card interactive-card" data-agent="schemer" style="cursor: pointer;">
+            <div class="card-icon img-icon">
+              <img src="assets/crew-schemer.png" alt="Schemer" class="crew-avatar-img" />
+            </div>
+            <h3>Schemer</h3>
+            <p>Architecture and planning. Evaluates tradeoffs and writes implementation strategy.</p>
+            <div class="card-footer-info">
+              <span class="card-badge">analysis</span>
+              <span class="run-tag">Run →</span>
+            </div>
+          </article>
+
+          <article class="crew-card interactive-card" data-agent="basher" style="cursor: pointer;">
+            <div class="card-icon img-icon">
+              <img src="assets/crew-basher.png" alt="Basher" class="crew-avatar-img" />
+            </div>
+            <h3>Basher</h3>
+            <p>Precise implementation inside approved scope. No wandering, no accidental expansions.</p>
+            <div class="card-footer-info">
+              <span class="card-badge">execution</span>
+              <span class="run-tag">Run →</span>
+            </div>
+          </article>
+
+          <article class="crew-card interactive-card" data-agent="squasher" style="cursor: pointer;">
+            <div class="card-icon img-icon">
+              <img src="assets/crew-squasher.png" alt="Squasher" class="crew-avatar-img" />
+            </div>
+            <h3>Squasher</h3>
+            <p>Root-cause debugging. Minimizes surface area and fixes the actual failure path.</p>
+            <div class="card-footer-info">
+              <span class="card-badge">execution</span>
+              <span class="run-tag">Run →</span>
+            </div>
+          </article>
+
+          <article class="crew-card interactive-card" data-agent="warden" style="cursor: pointer;">
+            <div class="card-icon img-icon">
+              <img src="assets/crew-warden.png" alt="Warden" class="crew-avatar-img" />
+            </div>
+            <h3>Warden</h3>
+            <p>Security review for auth flaws, secrets, injection risks, and data exposure.</p>
+            <div class="card-footer-info">
+              <span class="card-badge badge-warn">security</span>
+              <span class="run-tag">Run →</span>
+            </div>
+          </article>
+
+          <article class="crew-card interactive-card" data-agent="prover" style="cursor: pointer;">
+            <div class="card-icon img-icon">
+              <img src="assets/crew-prover.png" alt="Prover" class="crew-avatar-img" />
+            </div>
+            <h3>Prover</h3>
+            <p>Runs tests, validates behavior, and confirms evidence before work is called done.</p>
+            <div class="card-footer-info">
+              <span class="card-badge">verification</span>
+              <span class="run-tag">Run →</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ═══════════════ WORKFLOWS ═══════════════ -->
+      <section class="section" id="workflows">
+        <div class="section-header">
+          <span class="section-tag">Pipeline</span>
+          <h2>Workflow stages</h2>
+          <p>Autonomous modes that drive work from ambiguity to verified completion.</p>
+        </div>
+        <div class="pipeline">
+          <article class="pipeline-step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <h3>dig</h3>
+              <p>Clarify scope, success criteria, non-goals, and constraints.</p>
+            </div>
+          </article>
+          <article class="pipeline-step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <h3>goblinplan</h3>
+              <p>Turn scope into architecture decisions and an execution plan.</p>
+            </div>
+          </article>
+          <article class="pipeline-step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <h3>quest</h3>
+              <p>Execute larger work as checkpointed goals with a ledger.</p>
+            </div>
+          </article>
+          <article class="pipeline-step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <h3>tdd</h3>
+              <p>Move Red → Green → Refactor before polishing behavior.</p>
+            </div>
+          </article>
+          <article class="pipeline-step">
+            <div class="step-num">5</div>
+            <div class="step-content">
+              <h3>code-review</h3>
+              <p>Self-review for correctness, security, edge cases, and regressions.</p>
+            </div>
+          </article>
+        </div>
+        <div class="pipeline-terminal">
+          <span class="t-prompt">$</span>
+          <code>gg cruise "add a /health endpoint with tests"</code>
+          <button class="copy-btn" type="button" data-copy='gg cruise "add a /health endpoint with tests"' aria-label="Copy command">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- ═══════════════ COMMANDS ═══════════════ -->
+      <section class="section" id="commands">
+        <div class="section-header">
+          <span class="section-tag">Reference</span>
+          <h2>Command map</h2>
+          <p>Everything important at your fingertips, from quick questions to isolated worktrees.</p>
+        </div>
+        <div class="command-grid">
+          <article class="cmd-card">
+            <h3>Execution</h3>
+            <div class="cmd-list">
+              <code>gg ask &lt;question&gt;</code>
+              <code>gg explore &lt;topic&gt;</code>
+              <code>gg forage &lt;topic&gt;</code>
+              <code>gg exec &lt;prompt&gt;</code>
+              <code>gg exec --check</code>
+            </div>
+          </article>
+          <article class="cmd-card">
+            <h3>Workflows</h3>
+            <div class="cmd-list">
+              <code>gg cruise &lt;goal&gt;</code>
+              <code>gg quest &lt;goal&gt;</code>
+              <code>gg ralph &lt;task&gt;</code>
+              <code>gg goblins [N] &lt;task&gt;</code>
+              <code>gg goblins --tmux 4 &lt;task&gt;</code>
+            </div>
+          </article>
+          <article class="cmd-card">
+            <h3>Memory</h3>
+            <div class="cmd-list">
+              <code>gg memory status</code>
+              <code>gg memory search "..."</code>
+              <code>gg memory on|off</code>
+              <code>gg memory edit</code>
+              <code>gg memory clear</code>
+            </div>
+          </article>
+          <article class="cmd-card">
+            <h3>Worktrees</h3>
+            <div class="cmd-list">
+              <code>gg worktree</code>
+              <code>gg worktree new [name]</code>
+              <code>gg worktree rm &lt;name&gt;</code>
+              <code>gg worktree clean</code>
+              <code>gg -w feature-x</code>
+            </div>
+          </article>
+          <article class="cmd-card">
+            <h3>Config &amp; tools</h3>
+            <div class="cmd-list">
+              <code>gg config get &lt;key&gt;</code>
+              <code>gg config set &lt;key&gt; &lt;val&gt;</code>
+              <code>gg skills list</code>
+              <code>gg hooks list</code>
+              <code>gg doctor --verbose</code>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ═══════════════ COMPARISON ═══════════════ -->
+      <section class="section" id="compare">
+        <div class="section-header">
+          <span class="section-tag">Comparison</span>
+          <h2>Grok CLI vs. GrokGoblin</h2>
+          <p>What makes GrokGoblin a complete autonomous workflow layer compared to standard CLI wrappers.</p>
+        </div>
+        <div class="compare-table-wrapper">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>Capabilities</th>
+                <th>Standard Grok CLI</th>
+                <th>GrokGoblin Layer</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Agent Collaboration</strong></td>
+                <td>❌ Single linear chat agent</td>
+                <td><span class="text-gradient">✓ 10 collaborating specialists</span></td>
+              </tr>
+              <tr>
+                <td><strong>Workspace Safety</strong></td>
+                <td>❌ Modifies files directly on main</td>
+                <td><span class="text-gradient">✓ Sandbox worktree isolation</span></td>
+              </tr>
+              <tr>
+                <td><strong>Durable Pipelines</strong></td>
+                <td>❌ Forgetful chat states</td>
+                <td><span class="text-gradient">✓ Multi-stage checkpoint ledger</span></td>
+              </tr>
+              <tr>
+                <td><strong>Behavior Loops</strong></td>
+                <td>❌ Manual compile/test run loops</td>
+                <td><span class="text-gradient">✓ Self-healing test execution</span></td>
+              </tr>
+              <tr>
+                <td><strong>Persistent Memory</strong></td>
+                <td>❌ Session-only token caching</td>
+                <td><span class="text-gradient">✓ Remote-keyed structural state</span></td>
+              </tr>
+              <tr>
+                <td><strong>Custom Automation</strong></td>
+                <td>❌ Default prompts only</td>
+                <td><span class="text-gradient">✓ Extensible skills & lifecycle hooks</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ═══════════════ FEATURES ═══════════════ -->
+      <section class="section">
+        <div class="section-header">
+          <span class="section-tag">Built-in</span>
+          <h2>Memory, hooks, worktrees</h2>
+          <p>Built-in primitives for durable, reliable autonomous work.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            </div>
+            <h3>Persistent memory</h3>
+            <p>Project memory is keyed by git remote and injected through the launch overlay.</p>
+            <code>.grokgoblin/memory/project.md</code>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0 1 18 14.158V11a6.002 6.002 0 0 0-4-5.659V5a2 2 0 1 0-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 1 1-6 0v-1m6 0H9"/></svg>
+            </div>
+            <h3>Lifecycle hooks</h3>
+            <p>Tool and session events log state transitions, notifications, and runtime evidence.</p>
+            <code>~/.grok/hooks/hooks.json</code>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>
+            </div>
+            <h3>Isolated worktrees</h3>
+            <p>Risky work lands on <code class="inline-code">gg/</code> branches in sibling worktrees before integration.</p>
+            <code>../repo.gg-worktrees/name</code>
+          </article>
+        </div>
+      </section>
+
+      <!-- ═══════════════ FAQ ═══════════════ -->
+      <section class="section" id="faq">
+        <div class="section-header">
+          <span class="section-tag">FAQ</span>
+          <h2>Frequently Asked Questions</h2>
+          <p>Get answers to common structural, keying, and execution questions.</p>
+        </div>
+        <div class="faq-accordion-list">
+          <article class="faq-item">
+            <button class="faq-trigger" type="button" aria-expanded="false">
+              <span>How does GrokGoblin route tasks among the crew?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content" hidden>
+              <p>GrokGoblin runs an orchestrator subagent (Ralph) that monitors the workflow DAG. Ralph decomposes goals into tasks and queries the specialized agents (like Sniffer for logs/files or Warden for security sweeps) using strict input/output schemas. This isolation reduces LLM context drift and prevents conflicting file writes.</p>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-trigger" type="button" aria-expanded="false">
+              <span>Does GrokGoblin modify my active codebase directly?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content" hidden>
+              <p>No. By default, any execution task initialized via <code>gg worktree</code> or <code>gg cruise</code> clones your current active state into a sibling git worktree directory. Coding changes and testing compile loops are run within this isolated space, checking changes in only after test coverage validations succeed.</p>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-trigger" type="button" aria-expanded="false">
+              <span>Do I need a separate xAI Grok API subscription?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content" hidden>
+              <p>GrokGoblin routes all actions directly through your authenticated local <code>grok</code> CLI shell. If your terminal is logged in (using <code>grok login</code>), GrokGoblin wraps its commands automatically, utilizing your active account context without requiring additional monthly token fees.</p>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-trigger" type="button" aria-expanded="false">
+              <span>What are GrokGoblin skills and hooks?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content" hidden>
+              <p>Skills are markdown instruction folders (with optional supporting scripts) that teach the crew how to handle specific tasks (e.g. Supabase, Android upgrades). Hooks are executable scripts triggered before/after specific agent operations (like running linting tools or sending webhooks on failure).</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ═══════════════ INSTALL ═══════════════ -->
+      <section class="section install-section" id="install">
+        <div class="section-header">
+          <span class="section-tag">Get started</span>
+          <h2>Install GrokGoblin</h2>
+          <p>One command, then launch the enhanced Grok CLI.</p>
+        </div>
+        <div class="install-grid">
+          <div class="install-terminal">
+            <div class="terminal-chrome">
+              <div class="terminal-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <span class="terminal-title">terminal</span>
+              <button class="copy-btn" type="button" data-copy="npx grokgoblin@latest setup" aria-label="Copy install command">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              </button>
+            </div>
+            <div class="terminal-body">
+              <code><span class="t-prompt">$</span> npx grokgoblin@latest setup</code>
+              <code><span class="t-prompt">$</span> grok login</code>
+              <code><span class="t-prompt">$</span> gg</code>
+              <code class="t-success">✓ GrokGoblin active — 10 agents ready</code>
+            </div>
+          </div>
+          <div class="install-checklist">
+            <h3>Setup installs</h3>
+            <ul>
+              <li>GrokGoblin skills — <code class="inline-code">/dig</code>, <code class="inline-code">/goblinplan</code>, <code class="inline-code">/quest</code>, <code class="inline-code">/ralph</code>, <code class="inline-code">/tdd</code>, <code class="inline-code">/code-review</code></li>
+              <li>Native Grok subagents for the specialist crew</li>
+              <li>Hooks and runtime overlay generation</li>
+              <li>Config, memory, and orchestration state</li>
+            </ul>
+            <p class="install-note">Supports Node 20+, macOS, Linux, and standard Grok CLI sessions.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <a class="brand" href="#top">
+          <img src="assets/logo-transparent.png" alt="" class="brand-logo" />
+          <span class="brand-text">
+            <strong>GrokGoblin</strong>
+            <small>for Grok CLI</small>
+          </span>
+        </a>
+        <div class="footer-links">
+          <a
+            class="github-link"
+            href="https://github.com/akhilkinnera01/GrokGoblin"
+            target="_blank"
+            rel="noopener"
+            aria-label="View akhilkinnera01/GrokGoblin on GitHub"
+          >
+            <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M8 .2a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38l-.01-1.49c-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.42 7.42 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48l-.01 2.2c0 .21.15.46.55.38A8.01 8.01 0 0 0 8 .2Z"/>
+            </svg>
+          </a>
+          <a
+            class="linkedin-link"
+            href="https://www.linkedin.com/in/akhilkinnera/"
+            target="_blank"
+            rel="noopener"
+            aria-label="View akhilkinnera on LinkedIn"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M22.23 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.2 0 22.23 0zM7.12 20.45H3.56V9H7.12v11.45zM5.34 7.43c-1.14 0-2.06-.92-2.06-2.06 0-1.14.92-2.06 2.06-2.06 1.14 0 2.06.92 2.06 2.06 0 1.14-.92 2.06-2.06 2.06zm15.11 13.02h-3.56v-5.6c0-1.34-.03-3.05-1.86-3.05-1.86 0-2.14 1.45-2.14 2.95v5.7H9.33V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29z"/>
+            </svg>
+          </a>
+          <span class="footer-sep">·</span>
+          <a href="https://github.com/akhilkinnera01/GrokGoblin#readme" target="_blank" rel="noopener">Docs</a>
+          <span class="footer-sep">·</span>
+          <span>MIT License</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
