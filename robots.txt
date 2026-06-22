@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://akhilkinnera01.github.io/GrokGoblin/sitemap.xml
+Sitemap: https://akhilkinnera01.github.io/GrokGoblin-Website/sitemap.xml
