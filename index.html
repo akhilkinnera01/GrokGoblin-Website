@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="GrokGoblin turns the xAI Grok CLI into an autonomous themed engineering crew. Orchestrate 10 specialist agents (sniffer, schemer, basher) with durable workflows, persistent remote memory, isolated worktrees, and lifecycle hooks."
+      content="GrokGoblin turns the xAI Grok CLI into an autonomous themed engineering crew. Orchestrate 10 specialist agents (sniffer, schemer, basher) with durable workflows, persistent cross-session memory, isolated worktrees, and lifecycle hooks."
     />
     <meta
       name="keywords"
@@ -56,7 +56,7 @@
         "url": "https://github.com/akhilkinnera01"
       },
       "downloadUrl": "https://github.com/akhilkinnera01/GrokGoblin",
-      "softwareVersion": "0.1.0"
+      "softwareVersion": "0.1.1"
     }
     </script>
     <link rel="icon" type="image/png" href="assets/logo-transparent.png" />
@@ -200,7 +200,7 @@
           
           <div class="terminal-body" id="sandbox-terminal-body">
             <code><span class="t-prompt">$</span> npx grokgoblin@latest setup</code>
-            <code><span class="t-prompt">$</span> gg cruise <span class="t-string">"add a /health endpoint with tests"</span></code>
+            <code><span class="t-prompt">$</span> goblin cruise <span class="t-string">"add a /health endpoint with tests"</span></code>
             <code class="t-output"><span class="t-label">[RALPH]</span> iteration 07/50</code>
             <code class="t-output">&gt; reflect → tests failing; endpoint not wired</code>
             <code class="t-output">&gt; act → add route, handler, and test</code>
@@ -310,6 +310,7 @@
             </div>
           </article>
         </div>
+        <p class="crew-note">…plus <strong>tinker</strong>, <strong>nitpick</strong>, <strong>forager</strong> &amp; <strong>grunt</strong> — 10 specialists in all.</p>
       </section>
 
       <!-- ═══════════════ WORKFLOWS ═══════════════ -->
@@ -358,8 +359,8 @@
         </div>
         <div class="pipeline-terminal">
           <span class="t-prompt">$</span>
-          <code>gg cruise "add a /health endpoint with tests"</code>
-          <button class="copy-btn" type="button" data-copy='gg cruise "add a /health endpoint with tests"' aria-label="Copy command">
+          <code>goblin cruise "add a /health endpoint with tests"</code>
+          <button class="copy-btn" type="button" data-copy='goblin cruise "add a /health endpoint with tests"' aria-label="Copy command">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
         </div>
@@ -376,51 +377,61 @@
           <article class="cmd-card">
             <h3>Execution</h3>
             <div class="cmd-list">
-              <code>gg ask &lt;question&gt;</code>
-              <code>gg explore &lt;topic&gt;</code>
-              <code>gg forage &lt;topic&gt;</code>
-              <code>gg exec &lt;prompt&gt;</code>
-              <code>gg exec --check</code>
+              <code>goblin ask &lt;question&gt;</code>
+              <code>goblin explore &lt;topic&gt;</code>
+              <code>goblin forage &lt;topic&gt;</code>
+              <code>goblin exec &lt;prompt&gt;</code>
+              <code>goblin exec --check</code>
             </div>
           </article>
           <article class="cmd-card">
             <h3>Workflows</h3>
             <div class="cmd-list">
-              <code>gg cruise &lt;goal&gt;</code>
-              <code>gg quest &lt;goal&gt;</code>
-              <code>gg ralph &lt;task&gt;</code>
-              <code>gg goblins [N] &lt;task&gt;</code>
-              <code>gg goblins --tmux 4 &lt;task&gt;</code>
+              <code>goblin cruise &lt;goal&gt;</code>
+              <code>goblin quest &lt;goal&gt;</code>
+              <code>goblin ralph &lt;task&gt;</code>
+              <code>goblin hunt &lt;objective&gt;</code>
+              <code>goblin swarm [N] &lt;task&gt;</code>
+            </div>
+          </article>
+          <article class="cmd-card">
+            <h3>Review &amp; ship</h3>
+            <div class="cmd-list">
+              <code>goblin review</code>
+              <code>goblin review &lt;PR#&gt;</code>
+              <code>goblin ship &lt;goal&gt;</code>
+              <code>goblin worktree</code>
+              <code>goblin -w &lt;name&gt;</code>
             </div>
           </article>
           <article class="cmd-card">
             <h3>Memory</h3>
             <div class="cmd-list">
-              <code>gg memory status</code>
-              <code>gg memory search "..."</code>
-              <code>gg memory on|off</code>
-              <code>gg memory edit</code>
-              <code>gg memory clear</code>
+              <code>goblin memory status</code>
+              <code>goblin memory search "..."</code>
+              <code>goblin memory on|off</code>
+              <code>goblin memory edit</code>
+              <code>goblin memory clear</code>
             </div>
           </article>
           <article class="cmd-card">
             <h3>Worktrees</h3>
             <div class="cmd-list">
-              <code>gg worktree</code>
-              <code>gg worktree new [name]</code>
-              <code>gg worktree rm &lt;name&gt;</code>
-              <code>gg worktree clean</code>
-              <code>gg -w feature-x</code>
+              <code>goblin worktree</code>
+              <code>goblin worktree new [name]</code>
+              <code>goblin worktree rm &lt;name&gt;</code>
+              <code>goblin worktree clean</code>
+              <code>goblin -w feature-x</code>
             </div>
           </article>
           <article class="cmd-card">
             <h3>Config &amp; tools</h3>
             <div class="cmd-list">
-              <code>gg config get &lt;key&gt;</code>
-              <code>gg config set &lt;key&gt; &lt;val&gt;</code>
-              <code>gg skills list</code>
-              <code>gg hooks list</code>
-              <code>gg doctor --verbose</code>
+              <code>goblin config get &lt;key&gt;</code>
+              <code>goblin config set &lt;key&gt; &lt;val&gt;</code>
+              <code>goblin skills list</code>
+              <code>goblin hooks list</code>
+              <code>goblin doctor --verbose</code>
             </div>
           </article>
         </div>
@@ -466,7 +477,7 @@
               <tr>
                 <td><strong>Persistent Memory</strong></td>
                 <td>❌ Session-only token caching</td>
-                <td><span class="text-gradient">✓ Remote-keyed structural state</span></td>
+                <td><span class="text-gradient">✓ Cross-session project memory</span></td>
               </tr>
               <tr>
                 <td><strong>Custom Automation</strong></td>
@@ -491,7 +502,7 @@
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
             </div>
             <h3>Persistent memory</h3>
-            <p>Project memory is keyed by git remote and injected through the launch overlay.</p>
+            <p>Grok's native cross-session memory, enabled at setup, plus a local project file injected through the launch overlay.</p>
             <code>.grokgoblin/memory/project.md</code>
           </article>
           <article class="feature-card">
@@ -527,7 +538,7 @@
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-content" hidden>
-              <p>GrokGoblin runs an orchestrator subagent (Ralph) that monitors the workflow DAG. Ralph decomposes goals into tasks and queries the specialized agents (like Sniffer for logs/files or Warden for security sweeps) using strict input/output schemas. This isolation reduces LLM context drift and prevents conflicting file writes.</p>
+              <p>A leader goblin (the orchestrator) decomposes your goal into tasks and delegates each to the right specialist subagent — Sniffer for investigation, Schemer for planning, Warden for security review — running independent ones in parallel. Each role has strict tool boundaries and a defined input/output, which reduces context drift and prevents conflicting file writes. Read-only roles are capability-locked so they physically cannot edit files.</p>
             </div>
           </article>
 
@@ -537,7 +548,7 @@
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-content" hidden>
-              <p>No. By default, any execution task initialized via <code>gg worktree</code> or <code>gg cruise</code> clones your current active state into a sibling git worktree directory. Coding changes and testing compile loops are run within this isolated space, checking changes in only after test coverage validations succeed.</p>
+              <p>No. By default, any execution task initialized via <code>goblin worktree</code> or <code>goblin cruise</code> clones your current active state into a sibling git worktree directory. Coding changes and testing compile loops are run within this isolated space, checking changes in only after test coverage validations succeed.</p>
             </div>
           </article>
 
@@ -557,7 +568,7 @@
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-content" hidden>
-              <p>Skills are markdown instruction folders (with optional supporting scripts) that teach the crew how to handle specific tasks (e.g. Supabase, Android upgrades). Hooks are executable scripts triggered before/after specific agent operations (like running linting tools or sending webhooks on failure).</p>
+              <p>Skills are markdown instruction folders that become <code>/</code> slash commands inside a Grok session — GrokGoblin installs its own (<code>/dig</code>, <code>/goblinplan</code>, <code>/swarm</code>, <code>/hunt</code>, <code>/review</code>, <code>/ship</code>, <code>/forage</code>, and more) to drive each workflow. Hooks are scripts grok runs before/after tool and session events — GrokGoblin uses them to track state transitions and keep the orchestration overlay loaded.</p>
             </div>
           </article>
         </div>
@@ -586,14 +597,14 @@
             <div class="terminal-body">
               <code><span class="t-prompt">$</span> npx grokgoblin@latest setup</code>
               <code><span class="t-prompt">$</span> grok login</code>
-              <code><span class="t-prompt">$</span> gg</code>
+              <code><span class="t-prompt">$</span> goblin</code>
               <code class="t-success">✓ GrokGoblin active — 10 agents ready</code>
             </div>
           </div>
           <div class="install-checklist">
             <h3>Setup installs</h3>
             <ul>
-              <li>GrokGoblin skills — <code class="inline-code">/dig</code>, <code class="inline-code">/goblinplan</code>, <code class="inline-code">/quest</code>, <code class="inline-code">/ralph</code>, <code class="inline-code">/tdd</code>, <code class="inline-code">/code-review</code></li>
+              <li>GrokGoblin skills — <code class="inline-code">/dig</code>, <code class="inline-code">/goblinplan</code>, <code class="inline-code">/quest</code>, <code class="inline-code">/ralph</code>, <code class="inline-code">/cruise</code>, <code class="inline-code">/tdd</code>, <code class="inline-code">/code-review</code>, <code class="inline-code">/swarm</code>, <code class="inline-code">/hunt</code>, <code class="inline-code">/review</code>, <code class="inline-code">/ship</code>, <code class="inline-code">/forage</code></li>
               <li>Native Grok subagents for the specialist crew</li>
               <li>Hooks and runtime overlay generation</li>
               <li>Config, memory, and orchestration state</li>

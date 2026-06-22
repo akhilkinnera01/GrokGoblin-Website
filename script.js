@@ -124,13 +124,13 @@ const terminalLogs = {
     <code><span class="t-prompt">$</span> grok login</code>
     <code class="t-output">Authenticating shell session with xAI...</code>
     <code class="t-success">✓ Shell logged in successfully.</code>
-    <code><span class="t-prompt">$</span> gg setup</code>
+    <code><span class="t-prompt">$</span> goblin setup</code>
     <code class="t-output">Initializing GrokGoblin local orchestrator...</code>
     <code class="t-output">Downloading core skills (dig, quest, ralph, tdd, review)...</code>
     <code class="t-success">✓ Setup complete. 10 specialist agents configured.</code>
   `,
   sniffer: `
-    <code><span class="t-prompt">$</span> gg forage <span class="t-string">"where is the database initialized?"</span></code>
+    <code><span class="t-prompt">$</span> goblin explore <span class="t-string">"where is the database initialized?"</span></code>
     <code class="t-output"><span class="t-label">[SNIFFER]</span> status → scan files</code>
     <code class="t-output">&gt; read → package.json, src/index.ts, src/db.ts</code>
     <code class="t-output">&gt; trace → db connection pool initialized at src/db.ts:L24</code>
@@ -138,7 +138,7 @@ const terminalLogs = {
     <code class="t-success">✓ Found match at src/db.ts line 24.</code>
   `,
   schemer: `
-    <code><span class="t-prompt">$</span> gg plan <span class="t-string">"add user profiles schema"</span></code>
+    <code><span class="t-prompt">$</span> goblin quest <span class="t-string">"add user profiles schema"</span></code>
     <code class="t-output"><span class="t-label">[SCHEMER]</span> status → drafting implementation plan</code>
     <code class="t-output">&gt; analysis → need new table 'profiles', relationship user_id -> users(id)</code>
     <code class="t-output">&gt; files → [NEW] migrations/012_profiles.sql, [MODIFY] src/models/profile.ts</code>
@@ -146,7 +146,7 @@ const terminalLogs = {
     <code class="t-success">✓ Plan created and saved to .grokgoblin/plans/012_plan.md</code>
   `,
   basher: `
-    <code><span class="t-prompt">$</span> gg exec <span class="t-string">"implement profile model"</span></code>
+    <code><span class="t-prompt">$</span> goblin exec <span class="t-string">"implement profile model"</span></code>
     <code class="t-output"><span class="t-label">[BASHER]</span> status → executing scoped changes</code>
     <code class="t-output">&gt; modify → src/models/profile.ts (add class UserProfile)</code>
     <code class="t-output">&gt; write → add getProfileByUserId and updateProfile methods</code>
@@ -154,7 +154,7 @@ const terminalLogs = {
     <code class="t-success">✓ Code implemented. 48 lines added, 0 warnings.</code>
   `,
   squasher: `
-    <code><span class="t-prompt">$</span> gg ralph <span class="t-string">"fix NullPointerException in profile fetch"</span></code>
+    <code><span class="t-prompt">$</span> goblin ralph <span class="t-string">"fix NullPointerException in profile fetch"</span></code>
     <code class="t-output"><span class="t-label">[SQUASHER]</span> status → debugging stacktrace</code>
     <code class="t-output">&gt; trace → profile.ts:L45 called profile.avatar without null check</code>
     <code class="t-output">&gt; isolate → user avatar can be null if not uploaded</code>
@@ -162,7 +162,7 @@ const terminalLogs = {
     <code class="t-success">✓ Root cause fixed. Tests passing.</code>
   `,
   warden: `
-    <code><span class="t-prompt">$</span> gg exec --check <span class="t-string">"review security parameters"</span></code>
+    <code><span class="t-prompt">$</span> goblin review</code>
     <code class="t-output"><span class="t-label">[WARDEN]</span> status → scanning trust boundaries</code>
     <code class="t-output">&gt; audit → check profile.ts SQL queries for raw interpolations</code>
     <code class="t-output">&gt; verify → parameterized query verified, no SQLi vulnerability detected</code>
@@ -170,7 +170,7 @@ const terminalLogs = {
     <code class="t-success">✓ Security audit passed. Code marked safe.</code>
   `,
   prover: `
-    <code><span class="t-prompt">$</span> gg exec --test</code>
+    <code><span class="t-prompt">$</span> goblin ship <span class="t-string">"add user profiles"</span></code>
     <code class="t-output"><span class="t-label">[PROVER]</span> status → running tests & checklists</code>
     <code class="t-output">&gt; exec → npm run test:unit</code>
     <code class="t-output">&gt; output → ✓ profile model suite passed (12 tests)</code>
@@ -188,12 +188,12 @@ const crewCards = document.querySelectorAll(".interactive-card");
 // Update copy button state depending on active terminal session command
 function updateCopyButtonCommand(commandKey) {
   let commandStr = "npx grokgoblin@latest setup";
-  if (commandKey === "sniffer") commandStr = 'gg forage "where is the database initialized?"';
-  else if (commandKey === "schemer") commandStr = 'gg plan "add user profiles schema"';
-  else if (commandKey === "basher") commandStr = 'gg exec "implement profile model"';
-  else if (commandKey === "squasher") commandStr = 'gg ralph "fix NullPointerException in profile fetch"';
-  else if (commandKey === "warden") commandStr = 'gg exec --check "review security parameters"';
-  else if (commandKey === "prover") commandStr = 'gg exec --test';
+  if (commandKey === "sniffer") commandStr = 'goblin explore "where is the database initialized?"';
+  else if (commandKey === "schemer") commandStr = 'goblin quest "add user profiles schema"';
+  else if (commandKey === "basher") commandStr = 'goblin exec "implement profile model"';
+  else if (commandKey === "squasher") commandStr = 'goblin ralph "fix NullPointerException in profile fetch"';
+  else if (commandKey === "warden") commandStr = 'goblin review';
+  else if (commandKey === "prover") commandStr = 'goblin ship "add user profiles"';
   
   copyBtn?.setAttribute("data-copy", commandStr);
 }

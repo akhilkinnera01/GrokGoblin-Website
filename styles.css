@@ -755,8 +755,26 @@ main {
 /* ── Command Grid ────────────────────────────────────────── */
 .command-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
+}
+
+/* Keyboard focus ring — on-theme green, only for keyboard nav (not mouse clicks) */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.crew-note {
+  margin-top: 20px;
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.95rem;
+}
+.crew-note strong {
+  color: var(--accent-soft);
+  font-weight: 600;
 }
 
 .cmd-card {
