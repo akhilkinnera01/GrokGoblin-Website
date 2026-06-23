@@ -24,7 +24,7 @@
     <meta property="og:image" content="https://akhilkinnera01.github.io/GrokGoblin-Website/assets/banner-orchestrator-small.jpg" />
     
     <!-- Twitter Cards -->
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://akhilkinnera01.github.io/GrokGoblin-Website/" />
     <meta name="twitter:title" content="GrokGoblin — Autonomous Crew for xAI Grok CLI" />
     <meta name="twitter:description" content="Orchestrate the xAI Grok CLI into an autonomous themed developer crew: 10 specialist subagents, isolated worktrees, persistent memory, and TDD lifecycle loops." />
@@ -57,6 +57,46 @@
       },
       "downloadUrl": "https://github.com/akhilkinnera01/GrokGoblin",
       "softwareVersion": "0.1.1"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does GrokGoblin route tasks among the crew?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A leader goblin (the orchestrator) decomposes your goal into tasks and delegates each to the right specialist subagent — Sniffer for investigation, Schemer for planning, Warden for security review — running independent ones in parallel. Each role has strict tool boundaries and a defined input/output, which reduces context drift and prevents conflicting file writes. Read-only roles are capability-locked so they physically cannot edit files."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does GrokGoblin modify my active codebase directly?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. By default, any execution task initialized via goblin worktree or goblin cruise clones your current active state into a sibling git worktree directory. Coding changes and testing compile loops are run within this isolated space, checking changes in only after test coverage validations succeed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need a separate xAI Grok API subscription?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "GrokGoblin routes all actions directly through your authenticated local grok CLI shell. If your terminal is logged in (using grok login), GrokGoblin wraps its commands automatically, utilizing your active account context without requiring additional monthly token fees."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are GrokGoblin skills and hooks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Skills are markdown instruction folders that become slash commands inside a Grok session — GrokGoblin installs its own (/dig, /goblinplan, /swarm, /hunt, /review, /ship, /forage, and more) to drive each workflow. Hooks are scripts grok runs before/after tool and session events — GrokGoblin uses them to track state transitions and keep the orchestration overlay loaded."
+          }
+        }
+      ]
     }
     </script>
     <link rel="icon" type="image/png" href="assets/logo-transparent.png" />
